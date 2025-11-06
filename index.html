@@ -55,6 +55,7 @@
                     <span id="gameMode" class="game-mode"></span>
                 </div>
                 <div class="game-controls">
+                    <button class="control-btn" id="undoBtn" onclick="undoMove()">悔棋</button>
                     <button class="control-btn" onclick="restartGame()">重新开始</button>
                     <button class="control-btn" onclick="backToMenu()">返回菜单</button>
                 </div>
@@ -65,9 +66,19 @@
             </div>
         </div>
 
+        <!-- AI思考提示 -->
+        <div id="aiThinkingModal" class="modal hidden">
+            <div class="modal-content thinking">
+                <div class="thinking-spinner"></div>
+                <h2 id="aiThinkingText">AI思考中...</h2>
+                <p id="aiThinkingDetails" class="thinking-details"></p>
+            </div>
+        </div>
+
         <!-- 游戏结束对话框 -->
         <div id="gameOverModal" class="modal hidden">
             <div class="modal-content">
+                <button class="modal-close" onclick="closeGameOverModal()">×</button>
                 <h2 id="gameResult"></h2>
                 <div class="modal-buttons">
                     <button class="modal-btn" onclick="restartGame()">再来一局</button>
