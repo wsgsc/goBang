@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>五子棋对战游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 五子棋对战</h1>
+        </header>
+
+        <!-- 游戏模式选择 -->
+        <div id="modeSelection" class="mode-selection">
+            <h2>选择游戏模式</h2>
+            <div class="mode-buttons">
+                <button class="mode-btn" onclick="selectMode('pvp')">
+                    <span class="icon">👥</span>
+                    <span>双人对战</span>
+                </button>
+                <button class="mode-btn" onclick="selectMode('ai')">
+                    <span class="icon">🤖</span>
+                    <span>人机对战</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- AI难度选择 -->
+        <div id="difficultySelection" class="difficulty-selection hidden">
+            <h2>选择难度</h2>
+            <div class="difficulty-buttons">
+                <button class="difficulty-btn" onclick="startGame('easy')">
+                    <span class="icon">😊</span>
+                    <span>初级</span>
+                </button>
+                <button class="difficulty-btn" onclick="startGame('medium')">
+                    <span class="icon">😐</span>
+                    <span>中级</span>
+                </button>
+                <button class="difficulty-btn" onclick="startGame('hard')">
+                    <span class="icon">😈</span>
+                    <span>高级</span>
+                </button>
+            </div>
+            <button class="back-btn" onclick="backToModeSelection()">返回</button>
+        </div>
+
+        <!-- 游戏界面 -->
+        <div id="gameArea" class="game-area hidden">
+            <div class="game-info">
+                <div class="player-info">
+                    <span id="currentPlayer" class="current-player">黑子先手</span>
+                    <span id="gameMode" class="game-mode"></span>
+                </div>
+                <div class="game-controls">
+                    <button class="control-btn" onclick="restartGame()">重新开始</button>
+                    <button class="control-btn" onclick="backToMenu()">返回菜单</button>
+                </div>
+            </div>
+
+            <div class="board-container">
+                <canvas id="gameBoard"></canvas>
+            </div>
+        </div>
+
+        <!-- 游戏结束对话框 -->
+        <div id="gameOverModal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="gameResult"></h2>
+                <div class="modal-buttons">
+                    <button class="modal-btn" onclick="restartGame()">再来一局</button>
+                    <button class="modal-btn secondary" onclick="backToMenu()">返回菜单</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
